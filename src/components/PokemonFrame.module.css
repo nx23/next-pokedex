@@ -1,0 +1,27 @@
+.frame {
+  margin-left: 2rem;
+  margin-top: 0.5rem;
+  width: 6rem;
+  height: 7rem;
+  background-color: var(--white);
+  border-width: 2px;
+  border-color: var(--type-grass);
+}
+
+.portrait {
+  flex-direction: column;
+}
+
+.name {
+  font-size: 1rem;
+  color: var(--white);
+  background-color: var(--type-grass);
+}
+
+.idNumber {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  font-size: 0.75rem;
+  color: var(--type-grass);
+}

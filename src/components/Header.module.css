@@ -1,0 +1,16 @@
+.header {
+  font-size: 1.75rem;
+  height: 80px;
+  padding: 1rem;
+  align-items: center;
+}
+
+.title {
+  align-items: center;
+}
+
+.header img {
+  margin: 1rem;
+  width: 2rem;
+  height: 2rem;
+}

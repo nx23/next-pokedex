@@ -1,18 +1,43 @@
-import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react'
-import styles from './SearchBox.module.css'
+import { FormControl, Input, InputGroup, InputLeftElement } from '@chakra-ui/react'
 import Image from 'next/image'
 import Lupa from 'public/Lupa.svg'
+import React, { useState } from 'react';
 
+async function getPokemonData(name: string) {
+  const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch data')
+  }
+
+  const data = await res.json()
+
+  return data
+}
 
 export function SearchBox() {
+
   return (
-    <InputGroup className={styles.search}>
-        <InputLeftElement
-          className={styles.searchInputIcon}
-          pointerEvents='none'>
-            <Image src={Lupa} alt='Lupa' className={styles.lupa}/>
-        </InputLeftElement>
-      <Input placeholder='Procurar' className={styles.searchInput}/>
-    </InputGroup>
+    <FormControl>
+      <InputGroup
+        paddingRight={'2rem'}
+        paddingLeft={'2rem'}
+        alignItems={'center'}>
+          <InputLeftElement
+            left={'2.25rem'}
+            pointerEvents='none'>
+            <Image
+              src={Lupa}
+              alt='Lupa'
+              />
+          </InputLeftElement>
+        <Input
+          placeholder='Procurar'
+          borderRadius={'12px'}
+          borderColor={'black'}
+          backgroundColor={'var(--white)'}
+          />
+      </InputGroup>
+    </FormControl>
   )
 }

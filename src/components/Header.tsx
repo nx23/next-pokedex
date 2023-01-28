@@ -1,6 +1,4 @@
-'use client';
 
-import styles from './Header.module.css'
 import Image from 'next/image'
 import Pokeball from 'public/Pokeball.svg'
 import SortName from 'public/SortName.svg'
@@ -10,9 +8,19 @@ import { SearchBox } from './SearchBox';
 export function Header() {
   return (
     <>
-      <Flex className={styles.header}>
-        <Flex className={styles.title}>
-          <Image src={Pokeball} alt="Pokébola"/>
+      <Flex
+        fontSize={'1.75rem'}
+        height={'80px'}
+        padding={'1rem'}
+        alignItems={'center'}>
+        <Flex
+          alignItems={'center'}
+          width={'2rem'}
+          height={'2rem'}
+          margin={'1rem'}>
+          <Image
+            src={Pokeball}
+            alt="Pokébola"/>
           <strong>Pokédex</strong>
         </Flex>
 

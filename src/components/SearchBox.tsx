@@ -15,6 +15,8 @@ async function getPokemonData(name: string) {
   return data
 }
 
+
+
 export function SearchBox() {
 
   return (

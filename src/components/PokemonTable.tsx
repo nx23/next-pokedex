@@ -1,62 +1,42 @@
 import { IPokemonFrame } from "@/contracts";
 import { Flex } from "@chakra-ui/react";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { PokemonFrame } from "./PokemonFrame";
 
-const first10Pokemon: IPokemonFrame[] = [
-  {
-    id: '1',
-    name: 'bulbasaur',
-    type1: 'grass'
-  },
-  {
-    id: '2',
-    name: 'ivysaur',
-    type1: 'grass'
-  },
-  {
-    id: '3',
-    name: 'venusaur',
-    type1: 'grass'
-  },
-  {
-    id: '4',
-    name: 'charmander',
-    type1: 'fire'
-  },
-  {
-    id: '5',
-    name: 'charmeleon',
-    type1: 'fire'
-  },
-  {
-    id: '6',
-    name: 'charizard',
-    type1: 'fire'
-  },
-  {
-    id: '7',
-    name: 'squirtle',
-    type1: 'water'
-  },
-  {
-    id: '8',
-    name: 'wartotle',
-    type1: 'water'
-  },
-  {
-    id: '9',
-    name: 'blastoise',
-    type1: 'water'
-  },
-]
+async function fetchKantoPokemon(): Promise<IPokemonFrame[]> {
+
+  const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
+  const allpokemon = await res.json()
+
+  const pokemonsData = await Promise.all(allpokemon.results.map(async (pokemon: { name: string, url: string }) => {
+
+    const res = await fetch(pokemon.url)
+    const pokemonData = await res.json()
+
+    return { name: pokemonData.name, id: String(pokemonData.id), type1: pokemonData.types[0].type.name}
+  }))
+
+  return pokemonsData
+}
 
 export function PokemonTable() {
+
+  const { data, status } = useQuery({ queryKey: ['pokemons'], queryFn: fetchKantoPokemon })
+
+  if (status === 'loading') {
+    return <p>Loading...</p>
+  }
+
+  if (status === 'error') {
+    return <p>Error!</p>
+  }
+
   return (
     <Flex
       justifyContent={'center'}
       flexWrap={'wrap'}
       padding={'1'}>
-      {first10Pokemon.map((pokemon) => {
+      {data.map((pokemon) => {
         return (
           <PokemonFrame
             key={pokemon.id}

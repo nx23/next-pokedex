@@ -12,20 +12,17 @@ export function Header() {
         fontSize={'1.75rem'}
         height={'80px'}
         padding={'1rem'}
-        alignItems={'center'}>
+        alignItems={'center'}
+        justifyContent={'space-between'}>
         <Flex
           alignItems={'center'}
           width={'2rem'}
-          height={'2rem'}
-          margin={'1rem'}>
+          height={'2rem'}>
           <Image
             src={Pokeball}
             alt="Pokébola"/>
-          <strong>Pokédex</strong>
+        <strong style={{padding: '1rem'}}>Pokédex</strong>
         </Flex>
-
-        <Spacer />
-
         <IconButton
           colorScheme='none'
           aria-label='Search Pokémon'

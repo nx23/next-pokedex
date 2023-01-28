@@ -8,7 +8,8 @@ export default function Home() {
   return (
     <Flex
       flexDirection={'column'}
-      backgroundColor={'var(--background)'}>
+      backgroundColor={'var(--background)'}
+      >
       <Header />
       <PokemonTable />
     </Flex>

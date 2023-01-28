@@ -13,16 +13,18 @@ export function PokemonFrame(props: IPokemonFrame) {
 
   return (
     <Button
-      marginTop={'1rem'}
+      margin={'0.25rem'}
       flexDirection={'column'}
       borderColor={`var(--type-${type1})`}
       backgroundColor={'white'}
       height={'12rem'}
-      width={'10rem'}
-      borderWidth={'2px'}
+      width={'9rem'}
+      alignSelf={'stretch'}
+      borderWidth={'3px'}
       borderRadius={'6px'}>
       <Flex
-        marginLeft={'6rem'}
+        width={'full'}
+        justifyContent={'flex-end'}
         fontSize={'1.25rem'}
         color={`var(--type-${type1})`}>
         {`#${idPokemon}`}
@@ -31,14 +33,15 @@ export function PokemonFrame(props: IPokemonFrame) {
       <Image
         width={'full'}
         alt={name}
+        style={{paddingBottom: '1rem'}}
         src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${idPokemon}.png`}/>
       <Flex
         flexDirection={'column'}
         alignItems={'center'}
         paddingTop={'0.4rem'}
-        width={'10rem'}
+        width={'9rem'}
         height={'2.5rem'}
-        fontSize={'1.5rem'}
+        fontSize={'1.3rem'}
         color={'var(--white)'}
         borderRadius={'6px'}
         backgroundColor={`var(--type-${type1})`}>

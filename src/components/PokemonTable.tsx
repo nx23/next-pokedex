@@ -53,10 +53,9 @@ const first10Pokemon: IPokemonFrame[] = [
 export function PokemonTable() {
   return (
     <Flex
-      justifyContent={'space-between'}
-      marginLeft={'2rem'}
-      marginRight={'2rem'}
-      flexWrap={'wrap'}>
+      justifyContent={'center'}
+      flexWrap={'wrap'}
+      padding={'1'}>
       {first10Pokemon.map((pokemon) => {
         return (
           <PokemonFrame

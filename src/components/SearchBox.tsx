@@ -19,19 +19,19 @@ export function SearchBox() {
 
   return (
     <FormControl>
-      <InputGroup
-        paddingRight={'2rem'}
-        paddingLeft={'2rem'}
-        alignItems={'center'}>
+      <InputGroup>
           <InputLeftElement
-            left={'2.25rem'}
+            left={'1.25rem'}
             pointerEvents='none'>
             <Image
               src={Lupa}
               alt='Lupa'
+              width={'19'}
               />
           </InputLeftElement>
         <Input
+          marginLeft={'1rem'}
+          marginRight={'1rem'}
           placeholder='Procurar'
           borderRadius={'12px'}
           borderColor={'black'}

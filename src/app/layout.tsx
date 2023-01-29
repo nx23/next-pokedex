@@ -19,7 +19,7 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>
+      <body style={{ height: '100%', background: 'var(--background)'}}>
         <QueryClientProvider client={queryClient}>
           <ChakraProvider>
             {children}

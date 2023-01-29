@@ -2,34 +2,34 @@
 import Image from 'next/image'
 import Pokeball from 'public/Pokeball.svg'
 import SortName from 'public/SortName.svg'
-import { Flex, IconButton, Spacer } from '@chakra-ui/react';
+import { Flex, IconButton, Spacer, Stack } from '@chakra-ui/react';
 import { SearchBox } from './SearchBox';
 
 export function Header() {
   return (
     <>
-      <Flex
-        fontSize={'1.75rem'}
-        height={'80px'}
-        padding={'1rem'}
-        alignItems={'center'}
+      <Stack
+        width={'full'}
+        flexDirection={'row'}
+        paddingLeft={'1rem'}
+        paddingRight={'1rem'}
         justifyContent={'space-between'}>
         <Flex
-          alignItems={'center'}
-          width={'2rem'}
-          height={'2rem'}>
+          width={'2rem'}>
           <Image
             src={Pokeball}
             alt="Pokébola"/>
-        <strong style={{padding: '1rem'}}>Pokédex</strong>
+          <strong style={{paddingLeft: '1rem', color: 'black'}}>Pokédex</strong>
         </Flex>
         <IconButton
           colorScheme='none'
           aria-label='Search Pokémon'
-          icon={<Image src={SortName} alt="Sort by Name"/>}
+          icon={<Image src={SortName} alt="Sort by Name" style={{
+            width: '100%'
+          }}/>}
         />
-        
-      </Flex>
+
+      </Stack>
       <SearchBox />
     </>
   )

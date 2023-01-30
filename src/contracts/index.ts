@@ -1,3 +1,4 @@
+
 export interface IPokemonFrame {
   id: string
   name: string
@@ -23,6 +24,15 @@ export interface IPokemonStat {
   }
 }
 
+export interface IPokemonStats {
+  hp: number
+  attack: number
+  defense: number
+  specialAttack: number
+  specialDefense: number
+  speed: number
+}
+
 export interface IPokemonDetail extends IPokemonFrame {
 
   abilities: IPokemonAbilities[]
@@ -30,12 +40,5 @@ export interface IPokemonDetail extends IPokemonFrame {
   height: number
   weight: number
 
-  stats: {
-    hp: number
-    attack: number
-    defense: number
-    'special-attack': number
-    'special-defense': number
-    speed: number
-  }
+  stats: IPokemonStats
 }

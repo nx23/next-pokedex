@@ -25,6 +25,7 @@ export function PokemonFrame({ id, name, type1, type2 }: IPokemonFrame) {
         justifyContent={'flex-end'}
         fontSize={'1.20rem'}
         paddingRight={'0.3rem'}
+        marginTop={'-0.3rem'}
         color={`var(--type-${type1})`}>
         {`#${idPokemon}`}
       </Flex>
@@ -33,7 +34,7 @@ export function PokemonFrame({ id, name, type1, type2 }: IPokemonFrame) {
         width={'full'}
         alignSelf={'center'}
         alt={name}
-        style={{ marginTop: '-1.2rem' }}
+        style={{ marginTop: '-0.8rem' }}
         src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${idPokemon}.png`}/>
       <Flex
         flexDirection={'column'}

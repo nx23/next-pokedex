@@ -1,6 +1,6 @@
 'use client'
 
-import { Header } from '@/components/Header'
+import { HomeHeader } from '@/components/HomeHeader'
 import { Loading } from '@/components/Loading';
 import { PokemonTable } from '@/components/PokemonTable';
 import { IPokemonFrame } from '@/contracts';
@@ -31,7 +31,7 @@ async function fetchPokemons(props: { offset: number, limit: number }): Promise<
 
 export default function Home() {
 
-  const { data, status } = useQuery({ queryKey: ['pokemons'], queryFn: () => fetchPokemons({ offset: 0, limit: 151 }) })
+  const { data, status } = useQuery({ queryKey: ['pokemons'], queryFn: () => fetchPokemons({ offset: 0, limit: 1008 }) })
 
   if (status === 'loading') {
     return (
@@ -40,7 +40,7 @@ export default function Home() {
         alignItems={'center'}
         flexDirection={'column'}
         backgroundColor={'var(--background)'}>
-        <Header />
+        <HomeHeader />
         <Loading />
       </Flex>
     )
@@ -53,10 +53,9 @@ export default function Home() {
   return (
     <Flex
       height={'full'}
-      alignItems={'center'}
       flexDirection={'column'}
       backgroundColor={'var(--background)'}>
-      <Header />
+      <HomeHeader />
       <PokemonTable data={data}/>
     </Flex>
   )

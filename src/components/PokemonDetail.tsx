@@ -1,10 +1,11 @@
 
-import { IPokemonFrame } from "@/contracts"
-import { Button, Flex, Link } from "@chakra-ui/react"
-import NextLink from 'next/link'
-import { Image } from '@chakra-ui/react'
+import { IPokemonDetail } from "@/contracts"
+import { Flex } from "@chakra-ui/react"
+import { Image as ImageChakra } from '@chakra-ui/react'
+import { DetailsHeader } from "./DetailsHeader"
+import { DetailsTable } from "./DetailsTable"
 
-export function PokemonDetail({ id, name, type1, type2 }: IPokemonFrame) {
+export function PokemonDetail({ id, name, type1, type2, height, weight, stats }: IPokemonDetail) {
 
   const idPokemon = id.padStart(3, '0')
   const pokemonName = name.charAt(0).toUpperCase() + name.slice(1)
@@ -15,34 +16,41 @@ export function PokemonDetail({ id, name, type1, type2 }: IPokemonFrame) {
       height={'full'}
       alignSelf={'center'}
       alignItems={'center'}
+      justifyContent={'center'}
       flexDirection={'column'}
-      borderColor={`var(--type-${type1})`}
-      backgroundColor={'white'}
-      borderWidth={'3px'}
-      borderRadius={'6px'}>
-     <Flex
-        justifyContent={'flex-end'}
-        fontSize={'3rem'}
-        marginTop={'-0.3rem'}
-        paddingRight={'0.3rem'}
-        color={`var(--type-${type1})`}>
-        {`#${idPokemon}`}
-      </Flex>
-      <Image
-        width={'30rem'}
-        alt={name}
-        style={{ marginTop: '-1.2rem' }}
-        src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${idPokemon}.png`}/>
+      marginLeft={'1rem'}
+      marginRight={'1rem'}
+      background={`var(--type-${type1})`}>
+
+      <DetailsHeader
+        pokemonName={pokemonName}
+        idPokemon={idPokemon}/>
+
       <Flex
-        flexDirection={'column'}
-        alignItems={'center'}
-        width={'full'}
-        fontSize={'3rem'}
-        color={'var(--white)'}
-        borderRadius={'6px'}
-        backgroundColor={`var(--type-${type1})`}>
-        {pokemonName}
+        justifyContent={'center'}
+        width={'full'}>
+        <Flex
+          zIndex={3}
+          width={'96%'}
+          borderRadius={'8px'}
+          background={'whiteAlpha.300'}>
+          <ImageChakra
+            width={'full'}
+            alt={name}
+            src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${idPokemon}.png`}/>
+        </Flex>
       </Flex>
+
+      <DetailsTable
+        type1={type1}
+        type2={type2}
+        height={height}
+        weight={weight}
+        stats={stats}
+        abilities={[]}
+        id={""}
+        name={""}/>
+     
     </Flex>
   )
 }

@@ -2,10 +2,10 @@
 import Image from 'next/image'
 import Pokeball from 'public/Pokeball.svg'
 import SortName from 'public/SortName.svg'
-import { Flex, IconButton, Spacer, Stack } from '@chakra-ui/react';
+import { Flex, IconButton, Stack } from '@chakra-ui/react';
 import { SearchBox } from './SearchBox';
 
-export function Header() {
+export function HomeHeader() {
   return (
     <>
       <Stack
